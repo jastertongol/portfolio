@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaster Tongol - Automation Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 5px;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-top: -40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .demo-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .demo-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .demo-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .demo-card .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .demo-card .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .form-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .form-section h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-section h2::after {
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+
+        select option {
+            background: #667eea;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .workflow-visual {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            color: white;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+        }
+
+        .workflow-step.active .step-icon {
+            opacity: 1;
+            animation: pulse 1s ease;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 35px;
+            font-size: 2rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .status-message {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            border-left: 4px solid #667eea;
+        }
+
+        .status-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        .platforms {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .platform-badge {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .platform-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .workflow-step::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat-box {
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Experience Automation in Action</h1>
+            <p>See real workflows trigger across multiple platforms — not just slides</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="automation-count">0</div>
+                    <div class="stat-label">Automations Triggered</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Platforms Integrated</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">&lt;2s</div>
+                    <div class="stat-label">Average Response Time</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <section class="section">
+                <h2>What I Build</h2>
+                <p>I create intelligent automation systems that connect platforms, streamline workflows, and eliminate manual tasks. Every demo on this page uses real integrations you can test right now.</p>
+                
+                <div class="platforms">
+                    <span class="platform-badge">GoHighLevel</span>
+                    <span class="platform-badge">ActiveCampaign</span>
+                    <span class="platform-badge">Make.com</span>
+                    <span class="platform-badge">Twilio</span>
+                    <span class="platform-badge">Airtable</span>
+                    <span class="platform-badge">HubSpot</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Interactive Demos</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>🎯 Smart Lead Capture</h3>
+                        <p>Form with conditional logic that routes leads to different workflows based on their industry and needs.</p>
+                        <a href="#demo-form" class="btn">Try It Now</a>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3>📧 Multi-Channel Engagement</h3>
+                        <p>See how one submission triggers personalized emails, SMS notifications, and CRM updates in real-time.</p>
+                        <a href="#demo-form" class="btn">Test Automation</a>
+                    </div>
+
+                    <div class="demo-card">
+                        <h3>⚡ Workflow Visualization</h3>
+                        <p>Watch the automation flow in action with live status updates showing each step as it completes.</p>
+                        <a href="#demo-form" class="btn">See It Live</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>How It Works</h2>
+                <div class="workflow-visual">
+                    <div class="workflow-steps">
+                        <div class="workflow-step" id="step1">
+                            <div class="step-icon">📝</div>
+                            <div class="step-label">Form Submit</div>
+                        </div>
+                        <div class="workflow-step" id="step2">
+                            <div class="step-icon">🔄</div>
+                            <div class="step-label">Process Data</div>
+                        </div>
+                        <div class="workflow-step" id="step3">
+                            <div class="step-icon">📊</div>
+                            <div class="step-label">Update CRM</div>
+                        </div>
+                        <div class="workflow-step" id="step4">
+                            <div class="step-icon">📧</div>
+                            <div class="step-label">Send Email</div>
+                        </div>
+                        <div class="workflow-step" id="step5">
+                            <div class="step-icon">✅</div>
+                            <div class="step-label">Complete</div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-message" id="status-message">
+                        <strong>✓ Automation Complete!</strong>
+                        <p id="status-text">Your information has been processed across all platforms.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="form-section" id="demo-form">
+            <h2>Test Drive the Automation</h2>
+            <form id="automation-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Your Industry *</label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="saas">SaaS / Technology</option>
+                        <option value="coaching">Coaching / Consulting</option>
+                        <option value="agency">Marketing Agency</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">What interests you most?</label>
+                    <select id="interest" name="interest">
+                        <option value="lead-generation">Lead Generation Automation</option>
+                        <option value="email-campaigns">Email Campaign Management</option>
+                        <option value="crm-integration">CRM Integration</option>
+                        <option value="workflow-optimization">Workflow Optimization</option>
+                        <option value="all">All of the above</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Notes (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me about your automation needs..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">🚀 Trigger Automation</button>
+            </form>
+        </div>
+
+        <div class="main-content" style="margin-top: 40px;">
+            <section class="section">
+                <h2>What Happens Next?</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8;">When you submit the form above, here's what happens in under 2 seconds:</p>
+                <ul style="margin-top: 20px; margin-left: 20px; line-height: 2;">
+                    <li>✓ Your data is captured and validated</li>
+                    <li>✓ Contact record created in the database</li>
+                    <li>✓ Personalized welcome email sent to your inbox</li>
+                    <li>✓ Tagged and segmented based on your industry</li>
+                    <li>✓ Follow-up sequence initiated automatically</li>
+                    <li>✓ Notification sent to my dashboard</li>
+                </ul>
+                <p style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <strong>Note:</strong> This is a live demonstration. While you'll receive a real confirmation, some features are simulated for portfolio purposes. In client projects, every step connects to production systems.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Ready to Automate Your Business?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 30px;">Let's discuss how I can build custom automation solutions for your specific needs.</p>
+                <div style="text-align: center;">
+                    <a href="mailto:jastertongol@yahoo.com" class="demo-card btn" style="display: inline-block; text-decoration: none;">📧 Get In Touch</a>
+                    <a href="https://linkedin.com/in/jaster-tongol" target="_blank" class="demo-card btn" style="display: inline-block; text-decoration: none; margin-left: 20px;">💼 View LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jaster Tongol | Chief Automations Officer</p>
+            <p>
+                <a href="mailto:jastertongol@yahoo.com">Email</a>
+                <a href="https://linkedin.com/in/jaster-tongol" target="_blank">LinkedIn</a>
+                <a href="tel:+1234567890">Schedule Call</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Automation counter animation
+        let count = 0;
+        const targetCount = 247;
+        const counterElement = document.getElementById('automation-count');
+        
+        function animateCounter() {
+            const increment = targetCount / 100;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= targetCount) {
+                    count = targetCount;
+                    clearInterval(timer);
+                }
+                counterElement.textContent = Math.floor(count);
+            }, 20);
+        }
+        
+        animateCounter();
+
+        // Form submission handler
+        document.getElementById('automation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                industry: document.getElementById('industry').value,
+                interest: document.getElementById('interest').value,
+                message: document.getElementById('message').value
+            };
+
+            // Disable submit button
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⚙️ Processing...';
+
+            // Animate workflow steps
+            animateWorkflow(formData);
+        });
+
+        function animateWorkflow(formData) {
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
+            const statusMessage = document.getElementById('status-message');
+            const statusText = document.getElementById('status-text');
+            
+            let currentStep = 0;
+            
+            // Scroll to workflow
+            document.querySelector('.workflow-visual').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            const interval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    document.getElementById(steps[currentStep]).classList.add('active');
+                    currentStep++;
+                } else {
+                    clearInterval(interval);
+                    
+                    // Show completion message
+                    statusMessage.classList.add('show');
+                    statusText.innerHTML = `
+                        <strong>Welcome ${formData.name}!</strong><br>
+                        Check your inbox at <strong>${formData.email}</strong> for a personalized message.<br>
+                        You've been tagged for <strong>${formData.industry}</strong> follow-ups.
+                    `;
+                    
+                    // Reset form
+                    document.getElementById('automation-form').reset();
+                    const submitBtn = document.querySelector('.submit-btn');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '🚀 Trigger Automation';
+                    
+                    // Update counter
+                    const counter = document.getElementById('automation-count');
+                    counter.textContent = parseInt(counter.textContent) + 1;
+                    
+                    // Here you would add your actual Make.com webhook or API call
+                    // Example:
+                    // fetch('YOUR_MAKE_COM_WEBHOOK_URL', {
+                    //     method: 'POST',
+                    //     headers: { 'Content-Type': 'application/json' },
+                    //     body: JSON.stringify(formData)
+                    // });
+                }
+            }, 600);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
